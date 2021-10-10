@@ -1,0 +1,47 @@
+.navbar {
+    background-color: #131f97;
+    background-color: #131f97;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .navbar-brand {
+        font-weight: 600;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .links {
+        padding: 10px;
+
+        li {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+
+            img {
+                width: 30px;
+                height: auto;
+                margin: -5px;
+            }
+
+            a {
+                padding: 0 !important;
+                padding-right: 0.3rem !important;
+                padding-left: 0.3rem !important;
+            }
+
+            &:not(:last-child) {
+                border-right: solid 1px #5c63ac;
+            }
+        }
+    }
+}
