@@ -12,7 +12,7 @@ export default function Delivery() {
         } else {
             setLocation({});
         };
-        if(e.target.value !="" && !obj){
+        if(e.target.value !=="" && !obj){
             setTouched(true);
         }else{
             setTouched(false);

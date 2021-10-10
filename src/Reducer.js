@@ -10,6 +10,7 @@ export default function dispatcher(state = store, action) {
                 };
                 return data;
             });
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
 
         case "REMOVE_ITEM":
@@ -20,10 +21,12 @@ export default function dispatcher(state = store, action) {
                 };
                 return data;
             });
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
 
         case "DELETE_ITEM":
             state.products = state.products.filter((data) => action.payload !== data.id);
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
 
         case "SET_ITEM":
@@ -34,18 +37,27 @@ export default function dispatcher(state = store, action) {
                 };
                 return data;
             });
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
 
         case "SET_LOCATION":
             state.location = action.payload;
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
-
+        case "SET_SUMMERY":
+            state.summery = action.payload;
+            localStorage.setItem('offlineState', JSON.stringify(state));
+            return state;
         default:
+            // if (localStorage.getItem('offlineState')) {
+            //     state = JSON.parse(localStorage.getItem('offlineState'));
+            // };
             state.products = state.products.map(data => {
-                data.subtotal = 0;
-                data.quantity = 0;
+                data.subtotal = data.subtota ? data.subtota : 0;
+                data.quantity = data.quantity ? data.quantity : 0;
                 return data;
-            })
+            });
+            localStorage.setItem('offlineState', JSON.stringify(state));
             return state;
     }
 };

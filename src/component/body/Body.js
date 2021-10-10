@@ -17,7 +17,6 @@ export default function Body() {
     useEffect(() => {
         setItems(store.getState()['products'])
     }, [items]);
-
     return (
         <div className="container">
             <div className="col-lg-12">

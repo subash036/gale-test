@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import store from "../../Store";
 import Delivery from "../delivery-summery/Delivery";
 import "./ordersummery.scss";
@@ -13,6 +13,8 @@ export default function OrderSummery(props) {
         cartItemCount: 0,
         location: {}
     });
+
+    // useEffect(()=>{
     store.subscribe(() => {
         let total = 0;
         let count = 0;
@@ -25,9 +27,9 @@ export default function OrderSummery(props) {
 
         let location = store.getState()['location'];
         let discount = store.getState()['discount'];
-       
-        let shippingCharge = parseInt(location && location.deliveryPrice? location.deliveryPrice : 0);
-        let totalDiscunt = parseInt(total)>=parseInt(discount.minTotal)?((discount.discountPercentage/ 100) * total).toFixed(0):0;
+
+        let shippingCharge = parseInt(location && location.deliveryPrice ? location.deliveryPrice : 0);
+        let totalDiscunt = parseInt(total) >= parseInt(discount.minTotal) ? ((discount.discountPercentage / 100) * total).toFixed(0) : 0;
         let totalCartValue = total + shippingCharge - parseInt(totalDiscunt);
         location = location ? location : {};
         setSummery({
@@ -38,7 +40,16 @@ export default function OrderSummery(props) {
             location: location,
             cartItemCount: count
         });
+        // store.dispatch({
+        //     type:"SET_SUMMERY",
+        //     payload:summeryDetails
+        // })
     });
+    // },[summeryDetails])
+
+    if (store.getState()['summery']) {
+        setSummery(store.getState()['summery']);
+    }
     return (
         <div className="row order-summery">
             <div className="col-lg-4">
