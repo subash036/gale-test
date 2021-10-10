@@ -1,4 +1,3 @@
-import { useState } from "react";
 import store from "../../Store"
 
 export default function Promotion(){

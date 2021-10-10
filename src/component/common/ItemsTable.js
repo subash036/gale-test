@@ -17,8 +17,8 @@ export default function ItemsTable(props) {
             <tbody>
                 {props.items.map(eachItem => {
                     return <tr key={eachItem.id}>
-                        <td scope="row">
-                            <ImageCard eachItem={eachItem} />
+                        <td>
+                            <ImageCard item={eachItem} />
                         </td>
                         <td>{eachItem.price}</td>
                         <td><AddRemeCart quantity={eachItem.quantity} id={eachItem.id} /></td>
