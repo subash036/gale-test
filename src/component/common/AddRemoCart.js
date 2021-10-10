@@ -31,7 +31,7 @@ export default function AddRemeCart(props){
 
     return (
         <>
-            <img onClick={removeItem} alt="+" src={process.env.PUBLIC_URL + '/assets/icons/minus.png'} /><input onChange={onDirectChange} value={props.quantity} /><img onClick={addItem} alt="+" src={process.env.PUBLIC_URL + '/assets/icons/plus.png'} />
+            <img onClick={removeItem} alt="+" src={process.env.PUBLIC_URL + '/assets/icons/minus.png'} /><input type="text" name="change value" onChange={onDirectChange} defaultValue={props.quantity} /><img onClick={addItem} alt="+" src={process.env.PUBLIC_URL + '/assets/icons/plus.png'} />
         </>
     )
 }

@@ -5,7 +5,7 @@ export default function Stepper() {
                 {/* <!-- your steps here --> */}
                 <div className="step active" data-target="#logins-part">
                     <button type="button" className="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
-                        <span className="bs-stepper-circle-new active"><span></span></span>
+                        <span className="bs-stepper-circle-new active"><span className="active"></span></span>
                     </button>
                     <br/>
                     <span className="bs-stepper-label">Shopping</span>

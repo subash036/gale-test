@@ -25,8 +25,6 @@ export default function OrderSummery(props) {
 
         let location = store.getState()['location'];
         let discount = store.getState()['discount'];
-        console.log("🚀 ~ file: OrderSummery.js ~ line 28 ~ store.subscribe ~ discount",  total);
-        console.log("🚀 ~ file: OrderSummery.js ~ line 28 ~ store.subscribe ~ discount",  discount.discountPercentage);
        
         let shippingCharge = parseInt(location && location.deliveryPrice? location.deliveryPrice : 0);
         let totalDiscunt = parseInt(total)>=parseInt(discount.minTotal)?((discount.discountPercentage/ 100) * total).toFixed(0):0;

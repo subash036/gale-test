@@ -11,7 +11,6 @@ export default function Body() {
     let [items, setItems] = useState([]);
 
     store.subscribe(() => {
-        console.log("action", store.getState()['products']);
         setItems(store.getState()['products'])
     });
 

@@ -25,8 +25,15 @@ export default function dispatcher(state = store, action) {
         case "DELETE_ITEM":
             state.products = state.products.filter((data) => action.payload !== data.id);
             return state;
-        case "DELETE_ITEM":
-            state.products = state.products.filter((data) => action.payload !== data.id);
+
+        case "SET_ITEM":
+            state.products = state.products.map((data) => {
+                if (action.payload.id === data.id) {
+                    data.quantity = action.payload.value;
+                    data.subtotal = data.price * data.quantity;
+                };
+                return data;
+            });
             return state;
 
         case "SET_LOCATION":
@@ -34,7 +41,6 @@ export default function dispatcher(state = store, action) {
             return state;
 
         default:
-
             state.products = state.products.map(data => {
                 data.subtotal = 0;
                 data.quantity = 0;
